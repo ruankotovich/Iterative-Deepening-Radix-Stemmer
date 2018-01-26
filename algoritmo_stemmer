@@ -1,0 +1,18 @@
+A partir do segundo nó:
+
+O nó filho é o único branch?
+    O valor é igual ao do pai?
+        O Nó carrega peso? 
+            subtrai o peso pelo valor dele e passa pro filho(mantendo >=0)
+        Segue a vida
+    Senão
+    O nó filho não tem branches?
+        O nó filho tem o mesmo peso que o pai?
+            Fim -> nó filho
+        Senão
+            Fim -> nó atual
+    
+    O Nó filho não é menor que a média(normalizada com o peso +1 no divisor)?
+        O nó filho leva o peso do pai consigo pra próxima iteração (Pai - Filho)
+    Senão
+        O nó filho vai pra próxima iteração sem adição de peso (0)
