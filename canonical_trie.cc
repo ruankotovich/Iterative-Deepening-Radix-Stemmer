@@ -103,12 +103,13 @@ env CanonicalTrie {
                 if (child == curNode->nodes.end()) {
                     std::cout << "Theres no child called '" << c << "' on '" << last << "'" << std::endl;
                     break;
-                } else if ((child->second->final && iteration > word.size() >> 1) || child->second->frequency < 2) {
+                } else if ((child->second->final && iteration > 2) || child->second->frequency < 2) {
                     std::cout << "Child is final or unecessary" << std::endl;
                     break;
                 } else if (child->second->frequency != curNode->frequency && child->second->nodes.size() != 1) {
                     auto aWeight = static_cast<double>(curNode->frequency) / static_cast<double>(curNode->nodes.size() + (word.size() - iteration));
                     if (aWeight > static_cast<double>(child->second->frequency)) {
+                        ++iteration;
                         std::cout << "Child weight is minor than the father's average" << std::endl;
                         break;
                     }
